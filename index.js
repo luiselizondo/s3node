@@ -8,11 +8,11 @@ var imageFile = "./images/earth.jpg";
 // US Standard is us-east-1
 // US West (N. California) is us-west-1
 // US West (Oregon) is us-west-2
-AWS.config.region = 'us-east-1';
+// AWS.config.region = 'us-west-1';
 
 var config = {
 	bucket: process.env.AWS_BUCKET,
-	name: new Chance().string()
+	name: new Chance().string() + ".jpg"
 }
 
 var params = {
@@ -29,15 +29,14 @@ fs.readFile(imageFile, function(err, buffer) {
 
 	console.log("Uploading image %s to bucket %s", imageFile, config.bucket);
 
-	s3.createBucket(function() {
-		s3.upload({Key: config.name, Body: buffer}, function(err, result) {
-			if(err) {
-				console.log("Cannot upload to AWS S3");
-				console.log(err);
-			}
-			else {
-				console.log(result);
-			}
-		})
+	s3.upload({Key: config.name, Body: buffer}, function(err, result) {
+		if(err) {
+			console.log("Cannot upload to AWS S3");
+			console.log(err);
+		}
+		else {
+			console.log(result);
+		}
 	});
+
 })
