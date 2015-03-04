@@ -1,0 +1,12 @@
+web:
+  image: luis/nodejs
+  ports: 
+    - "3000:3000"
+  environment:
+    NODE_ENV: development
+    AWS_ACCESS_KEY_ID: enteryourown
+    AWS_SECRET_ACCESS_KEY: enteryourown
+    AWS_BUCKET: enteryourbucket
+  volumes:
+    - application:/var/www
+    - logs:/var/log/supervisor

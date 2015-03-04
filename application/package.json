@@ -1,0 +1,15 @@
+{
+  "name": "s3node",
+  "version": "1.0.0",
+  "description": "An example of s3 on node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis Elizondo <lelizondo@gmail.com> (http://luiselizondo.net/)",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.1.14",
+    "chance": "^0.7.3"
+  }
+}
